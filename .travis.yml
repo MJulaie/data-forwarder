@@ -6,7 +6,7 @@ go:
 env:
     matrix:
         - OKARCH=amd64 OSARCH=alpine
-        - OKARCH=i386 OSARCH=debian
+        - OKARCH=386 OSARCH=debian
 script:
     - GOOS=linux GOARCH=$OKARCH go build -o data-forwarder-$OSARCH main.go
 deploy:
