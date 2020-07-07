@@ -8,14 +8,13 @@ env:
         - OKARCH=amd64 OSARCH=amd64
         - OKARCH=386 OSARCH=i386
 script:
-    - mkdir -p build/$OSARCH
-    - GOOS=linux GOARCH=$OKARCH go build -o build/$OSARCH/data-forwarder-$OSARCH main.go
+    - GOOS=linux GOARCH=$OKARCH go build -o data-forwarder-$OSARCH main.go
 deploy:
     provider: releases
     api_key: "$GITHUB_OAUTH_TOKEN"
     file_glob: true
     file:
-        - build/$OSARCH/data-forwarder-$OSARCH
-    cleanup: true
+        - data-forwarder-$OSARCH
+    skip_cleanup: true
     on:
       tags: true
