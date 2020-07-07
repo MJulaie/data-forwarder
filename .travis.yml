@@ -1,5 +1,4 @@
 language: go
-sudo: false
 
 go:
     - 1.12.x
@@ -16,7 +15,7 @@ deploy:
     api_key: "$GITHUB_OAUTH_TOKEN"
     file_glob: true
     file:
-        - build/*
-    skip_cleanup: true
+        - build/$OSARCH/data-forwarder-$OSARCH
+    cleanup: true
     on:
       tags: true
