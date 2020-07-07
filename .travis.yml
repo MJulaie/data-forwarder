@@ -10,7 +10,6 @@ env:
         - OKARCH=386 OSARCH=i386
 script:
     - mkdir -p build/$OSARCH
-    - go get all
     - GOOS=linux GOARCH=$OKARCH go build -o build/$OSARCH/data-forwarder main.go
 deploy:
     provider: releases
